@@ -2,8 +2,9 @@
 import time
 import eeml 
 import subprocess # we scrape apcaccess output
-interesting = ('bcharge') 
-res = subprocess.check_output("/sbin/apcaccess")
+interesting = ('bposition') 
+res = subprocess.check_output("http://mobile.theride.org/#/dashboard/5")
+res_clean = 
 for line in res.split('\n'):
     (key,spl,val) = line.partition(': ')
     key = key.rstrip().lower()
