@@ -2,7 +2,7 @@
 import time
 import os
 import RPi.GPIO as GPIO
-#import eeml
+import eeml
 
 GPIO.setmode(GPIO.BCM)
 DEBUG = 1
