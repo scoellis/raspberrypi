@@ -10,6 +10,7 @@ for line in res.split('\n'):
     if key in interesting: # just save what we want
         val = val.strip()
         val = val.split(' ',1)[0] # ignore anything after 1st space
+        print val
         API_KEY = '5hNkK3ChNVUIaTUvmpCnCkaIYDwPndzj02MkF1i4er44Xb2e' # set up pachube connection
         FEED = 777885590
         API_URL = '/v2/feeds/{feednum}.xml' .format(feednum = FEED)
