@@ -14,5 +14,5 @@ for line in res.split('\n'):
         FEED = 777885590
         API_URL = '/v2/feeds/{feednum}.xml' .format(feednum = FEED)
         pac = eeml.Pachube(API_URL, API_KEY) # open up your feed
-        pac.update([eeml.Data("APC", val)]) #compile data
+        pac.update([eeml.Data("apc-balfour", val)]) #compile data
         pac.put() # send data to cosm
