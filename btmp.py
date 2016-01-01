@@ -90,7 +90,14 @@ print "read_adc0:\t", read_adc0
 print "millivolts:\t", millivolts
 print "temp_C:\t\t", temp_C
 print "temp_F:\t\t", temp_F
-print
+
+API_KEY = '5hNkK3ChNVUIaTUvmpCnCkaIYDwPndzj02MkF1i4er44Xb2e'
+FEED = 777885590
+API_URL = '/v2/feeds/{feednum}.xml' .format(feednum = FEED)
+#pac = eeml.cosm(API_URL, API_KEY) # open up your feed
+pac = eeml.Pachube(API_URL, API_KEY) # open up your feed
+pac.update([eeml.Data("Temperature", tmp_F, unit=eeml.Fahrenheit())]) #compile data
+pac.put() # send data to cosm
 
  #       if LOGGER:
                 # open up your cosm feed
