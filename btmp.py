@@ -96,7 +96,7 @@ FEED = 777885590
 API_URL = '/v2/feeds/{feednum}.xml' .format(feednum = FEED)
 #pac = eeml.cosm(API_URL, API_KEY) # open up your feed
 pac = eeml.Pachube(API_URL, API_KEY) # open up your feed
-pac.update([eeml.Data("Temperature", tmp_F, unit=eeml.Fahrenheit())]) #compile data
+pac.update([eeml.Data("tmp-balfour", tmp_F, unit=eeml.Fahrenheit())]) #compile data
 pac.put() # send data to cosm
 
  #       if LOGGER:
