@@ -117,3 +117,17 @@ pac.put() # send data to cosm
 
         # hang out and do nothing for 10 seconds, avoid flooding cosm
 #        time.sleep(30)
+#s = requests.session()
+#login_header = {'content-type': 'application/json'}
+#login_payload = {'username':'Scott Ellis', 'password': 'q!5wrKJH2gbM'}
+#r_login = s.post('http://ske313.us/rest/user/login', data=json.dumps(login_payload), headers=login_header)
+#token_header = {'content-type': 'application/json'}
+#r_token = s.get('http://ske313.us/services/session/token', headers=token_header)
+#header = {'content-type': 'application/json', 'X-CSRF-Token': r_token.text}
+#payload = {'type':'post_data', 'title':'Temp', 'field_temp':{'und':[{'value':tmp}]}}
+#json_data = json.dumps(payload)
+#r_node_post = s.post('http://ske313.us/rest/node', data=json_data, headers=header)
+#r_logout = s.post('http://ske313.us/rest/user/logout', headers=header)
+#file = open("tmp-post.log","a")
+#current_time = time.strftime("%m.%d.%y %H:%M",time.localtime())
+#file.write("date:" + current_time + " - " + "post status:" + str(r_node_post.status_code) + " - " + "tmp:" + tmp)
