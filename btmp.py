@@ -3,6 +3,7 @@ import time
 import os
 import RPi.GPIO as GPIO
 import eeml
+import requests
 
 GPIO.setmode(GPIO.BCM)
 DEBUG = 1
@@ -131,3 +132,4 @@ pac.put() # send data to cosm
 #file = open("tmp-post.log","a")
 #current_time = time.strftime("%m.%d.%y %H:%M",time.localtime())
 #file.write("date:" + current_time + " - " + "post status:" + str(r_node_post.status_code) + " - " + "tmp:" + tmp)
+
