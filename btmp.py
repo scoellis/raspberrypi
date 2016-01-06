@@ -57,14 +57,6 @@ GPIO.setup(SPIMISO, GPIO.IN)
 GPIO.setup(SPICLK, GPIO.OUT)
 GPIO.setup(SPICS, GPIO.OUT)
 
-# COSM variables. The API_KEY and FEED are specific to your COSM account and must be changed
-#API_KEY = '5RNOO3ShYJxYiq2V2sgSRtz3112SAKxFQjNDQmNXc0RScz0g'
-#FEED = 68872
-#API_KEY = 'YOUR_API_KEY'
-#FEED = YOUR_FEED_ID
-
-#API_URL = '/v2/feeds/{feednum}.xml' .format(feednum = FEED)
-
 # temperature sensor connected channel 0 of mcp3008
 adcnum = 0
 
@@ -95,7 +87,6 @@ print "temp_F:\t\t", temp_F
 API_KEY = '5hNkK3ChNVUIaTUvmpCnCkaIYDwPndzj02MkF1i4er44Xb2e'
 FEED = 777885590
 API_URL = '/v2/feeds/{feednum}.xml' .format(feednum = FEED)
-#pac = eeml.cosm(API_URL, API_KEY) # open up your feed
 pac = eeml.Pachube(API_URL, API_KEY) # open up your feed
 pac.update([eeml.Data("temp-balfour", temp_F, unit=eeml.Fahrenheit())]) #compile data
 pac.put() # send data to cosm
