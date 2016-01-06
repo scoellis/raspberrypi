@@ -134,8 +134,12 @@ pac.put() # send data to cosm
 #file.write("date:" + current_time + " - " + "post status:" + str(r_node_post.status_code) + " - " + "tmp:" + tmp)
 
 temp = float(temp_F)
-if temp < 55:
-   print 'temp < 55'
+url = 'https://maker.ifttt.com/trigger/balfour-temp-log/with/key/cFhTlTfn_Q98NmXSuVO93M'
+payload = {'value1':temp}
+headers = {}
+res = requests.post(url, data=payload, headers=headers)
+
+if temp < 50:
    url = 'https://maker.ifttt.com/trigger/low-temp-balfour/with/key/cFhTlTfn_Q98NmXSuVO93M'
    payload = {'value1':temp}
    headers = {}
