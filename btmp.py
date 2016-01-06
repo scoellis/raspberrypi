@@ -91,25 +91,6 @@ pac = eeml.Pachube(API_URL, API_KEY) # open up your feed
 pac.update([eeml.Data("temp-balfour", temp_F, unit=eeml.Fahrenheit())]) #compile data
 pac.put() # send data to cosm
 
-        if LOGGER:
-                # open up your cosm feed
-                pac = eeml.Pachube(API_URL, API_KEY)
-
-                #send celsius data
-                pac.update([eeml.Data(0, temp_C, unit=eeml.Celsius())])
-
-                #send fahrenheit data
-                pac.update([eeml.Data(1, temp_F, unit=eeml.Fahrenheit())])
-
-                # send data to cosm
-               try:
-                       pac.put()
-               except CosmError, e:
-                       print "Error while pushing to COSM: %s" % e
-
-        hang out and do nothing for 10 seconds, avoid flooding cosm
-        time.sleep(30)
-
 temp = float(temp_F)
 url = 'https://maker.ifttt.com/trigger/balfour-temp-log/with/key/cFhTlTfn_Q98NmXSuVO93M'
 payload = {'value1':temp}
