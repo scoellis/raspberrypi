@@ -3,6 +3,7 @@ import time
 import os
 import RPi.GPIO as GPIO
 import eeml
+import requests
 
 GPIO.setmode(GPIO.BCM)
 DEBUG = 1
@@ -131,3 +132,11 @@ pac.put() # send data to cosm
 #file = open("tmp-post.log","a")
 #current_time = time.strftime("%m.%d.%y %H:%M",time.localtime())
 #file.write("date:" + current_time + " - " + "post status:" + str(r_node_post.status_code) + " - " + "tmp:" + tmp)
+
+temp = float(temp_F)
+if temp < 55:
+   print 'temp < 55'
+   url = 'https://maker.ifttt.com/trigger/low-temp-balfour/with/key/cFhTlTfn_Q98NmXSuVO93M'
+   payload = {'value1':temp}
+   headers = {}
+   res = requests.post(url, data=payload, headers=headers)
