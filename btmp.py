@@ -92,15 +92,15 @@ pac.update([eeml.Data("temp-balfour", temp_F, unit=eeml.Fahrenheit())]) #compile
 pac.put() # send data to cosm
 
 #Log temperature to Google Spreadsheet using IFTTT
-temp = float(temp_F)
-url = 'https://maker.ifttt.com/trigger/balfour-temp-log/with/key/cFhTlTfn_Q98NmXSuVO93M'
-payload = {'value1':temp}
-headers = {}
-res = requests.post(url, data=payload, headers=headers)
+#temp = float(temp_F)
+#url = 'https://maker.ifttt.com/trigger/balfour-temp-log/with/key/cFhTlTfn_Q98NmXSuVO93M'
+#payload = {'value1':temp}
+#headers = {}
+#res = requests.post(url, data=payload, headers=headers)
 
 #Send text with low temperature alert to using IFTTT Maker Channel
-if temp < 50:
-  url = 'https://maker.ifttt.com/trigger/low-temp-balfour/with/key/cFhTlTfn_Q98NmXSuVO93M'
-  payload = {'value1':temp}
-  headers = {}
-  res = requests.post(url, data=payload, headers=headers)
+#if temp < 50:
+#  url = 'https://maker.ifttt.com/trigger/low-temp-balfour/with/key/cFhTlTfn_Q98NmXSuVO93M'
+#  payload = {'value1':temp}
+#  headers = {}
+#  res = requests.post(url, data=payload, headers=headers)

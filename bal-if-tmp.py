@@ -22,7 +22,7 @@ def readadc(adcnum, clockpin, mosipin, misopin, cspin):
   commandout |= 0x18  # start bit + single-ended bit
   commandout <<= 3  # we only need to send 5 bits here
   for i in range(5):
-    if (commandout & 0x80):
+u    if (commandout & 0x80):
       GPIO.output(mosipin, True)
     else:
       GPIO.output(mosipin, False)
@@ -99,7 +99,7 @@ headers = {}
 res = requests.post(url, data=payload, headers=headers)
 
 #Send text with low temperature alert to using IFTTT Maker Channel
-if temp < 50:
+if temp < 48:
   url = 'https://maker.ifttt.com/trigger/low-temp-balfour/with/key/cFhTlTfn_Q98NmXSuVO93M'
   payload = {'value1':temp}
   headers = {}
