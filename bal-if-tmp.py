@@ -22,7 +22,7 @@ def readadc(adcnum, clockpin, mosipin, misopin, cspin):
   commandout |= 0x18  # start bit + single-ended bit
   commandout <<= 3  # we only need to send 5 bits here
   for i in range(5):
-u    if (commandout & 0x80):
+    if (commandout & 0x80):
       GPIO.output(mosipin, True)
     else:
       GPIO.output(mosipin, False)
@@ -84,13 +84,6 @@ print "millivolts:\t", millivolts
 print "temp_C:\t\t", temp_C
 print "temp_F:\t\t", temp_F
 
-API_KEY = '5hNkK3ChNVUIaTUvmpCnCkaIYDwPndzj02MkF1i4er44Xb2e'
-FEED = 777885590
-API_URL = '/v2/feeds/{feednum}.xml' .format(feednum = FEED)
-pac = eeml.Pachube(API_URL, API_KEY) # open up your feed
-pac.update([eeml.Data("temp-balfour", temp_F, unit=eeml.Fahrenheit())]) #compile data
-pac.put() # send data to cosm
-
 #Log temperature to Google Spreadsheet using IFTTT
 temp = float(temp_F)
 url = 'https://maker.ifttt.com/trigger/balfour-temp-log/with/key/cFhTlTfn_Q98NmXSuVO93M'
@@ -104,3 +97,5 @@ if temp < 48:
   payload = {'value1':temp}
   headers = {}
   res = requests.post(url, data=payload, headers=headers)
+else:
+  exit
