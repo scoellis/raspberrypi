@@ -5,6 +5,8 @@ import RPi.GPIO as GPIO
 import eeml
 import requests
 
+time.sleep(60)
+GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
 DEBUG = 1
 LOGGER = 1
@@ -84,6 +86,7 @@ print "millivolts:\t", millivolts
 print "temp_C:\t\t", temp_C
 print "temp_F:\t\t", temp_F
 
+###IFTTT stuff###
 #Log temperature to Google Spreadsheet using IFTTT
 temp = float(temp_F)
 url = 'https://maker.ifttt.com/trigger/balfour-temp-log/with/key/cFhTlTfn_Q98NmXSuVO93M'
@@ -98,4 +101,4 @@ if temp < 48:
   headers = {}
   res = requests.post(url, data=payload, headers=headers)
 else:
-  exit
+  exit()
